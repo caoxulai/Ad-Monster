@@ -14,9 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    // Remove the below line after defining your own ad unit ID.
-    private static final String TOAST_TEXT = "Test ads are being shown. "
-            + "To show live ads, replace the ad unit ID in res/values/strings.xml with your own ad unit ID.";
 
     private static final int START_LEVEL = 1;
     private int mLevel;
@@ -46,9 +43,6 @@ public class MainActivity extends AppCompatActivity {
         // Create the InterstitialAd and set the adUnitId (defined in values/strings.xml).
         mInterstitialAd = newInterstitialAd();
         loadInterstitial();
-
-        // Toasts the test ad message on the screen. Remove this after defining your own ad unit ID.
-        Toast.makeText(this, TOAST_TEXT, Toast.LENGTH_LONG).show();
     }
 
 
@@ -99,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
     private void showInterstitial() {
         // Show the ad if it's ready. Otherwise toast and reload the ad.
         if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
+            // Toasts the test ad message on the screen. Remove this after defining your own ad unit ID.
+            Toast.makeText(this, "Display interstitial ad", Toast.LENGTH_LONG).show();
             mInterstitialAd.show();
         } else {
             Toast.makeText(this, "Ad did not load", Toast.LENGTH_SHORT).show();
